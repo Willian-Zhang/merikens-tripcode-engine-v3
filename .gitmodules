@@ -1,0 +1,3 @@
+[submodule "CLRX-mirror"]
+	path = CLRX-mirror
+	url = git@github.com:CLRX/CLRX-mirror.git

@@ -51,7 +51,7 @@ case $key in
 	INSTALL=true
     ;;
     --rebuild)
-	rm -rf CMake/cmake-$CMAKE_VERSION CLRadeonExtender/CLRX-mirror-master/build BoostPackages/boost_1_61_0 CMakeBuild/
+	rm -rf CMake/cmake-$CMAKE_VERSION CLRX-mirror/build BoostPackages/boost_1_61_0 CMakeBuild/
     ;;
     -j)
 	NUM_THREADS="$2"
@@ -103,17 +103,14 @@ then
 fi
 
 # CLRadeonExtender
-if [ ! -f "./CLRadeonExtender/CLRX-mirror-master/build/programs/clrxasm" ]
+if [ ! -f "./CLRX-mirror/build/programs/clrxasm" ]
 then
-    cd CLRadeonExtender/
-    echo Extracting CLRadeonExtender...
-    7z x -y CLRadeonExtender-*.zip > /dev/null
-    cd CLRX-mirror-master/
+    cd CLRX-mirror/
     mkdir -p build/
     cd build/
     $CMAKE $CMAKE_OPTIONS -DCMAKE_INSTALL_PREFIX=/usr ../
     make $MAKE_OPTIONS
-    cd ../../../
+    cd ../../
 fi
 
 # Boost
